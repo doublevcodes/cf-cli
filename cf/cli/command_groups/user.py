@@ -3,6 +3,7 @@ from textwrap import dedent
 from pathlib import Path
 import orjson
 
+from cf.backend.endpoints.user import get_user_info
 from cf.backend.endpoints.token import verify
 
 
@@ -54,3 +55,11 @@ def user_login():
     else:
         typer.secho("Haply anoth'r day 👋 ", fg="bright_yellow")
         raise typer.Exit()
+
+@user.command("info")
+def user_info():
+    info = get_user_info()
+    if info:
+        typer.secho("Cloudflare hast the following information regarding thee 📚:", fg="green", underline=True)
+        for k, v in info.dict().items():
+            typer.echo(f"{typer.style(k.replace('_', ' ').title(), fg='blue')}: {typer.style(v, fg=('cyan' if v is not None else 'red'))}")

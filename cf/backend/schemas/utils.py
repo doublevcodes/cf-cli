@@ -1,3 +1,5 @@
+from typing import Annotated
+
 from pydantic import Field
 
-id = Field(..., max_length=32)
+identifier = Annotated[str, Field(max_length=32)]

@@ -8,7 +8,7 @@ app = typer.Typer()
 
 commands_path = Path(__file__).parent.resolve() / "command_groups"
 
-for file in commands_path.iterdir():
+for file in commands_path.glob("*.py"):
     module = runpy.run_path(file)[file.stem]
     app.add_typer(module, name=file.stem)
 
