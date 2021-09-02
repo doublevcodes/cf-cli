@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "cf_cli"
+version = "0.1.0"
+description = "Terminal interaction with Cloudflare"
+authors = ["Vivaan Verma <vivaan.verma@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typer = "^0.4.0"
+pydantic = "^1.8.2"
+requests = "^2.26.0"
+orjson = "^3.6.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
